@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace workshop.Exercises
 {
-    public class Location : Base
+    public class Location : Base.Base
     {
          //
     // Exercise:
