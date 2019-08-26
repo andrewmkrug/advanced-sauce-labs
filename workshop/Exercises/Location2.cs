@@ -1,18 +1,22 @@
-﻿namespace workshop.Exercises
+﻿using System;
+using NUnit.Framework;
+using OpenQA.Selenium;
+
+namespace workshop.Exercises
 {
-    public class Location2
+    public class Location2 : Base.Base
     {
         //
     // Exercise:
     // Fill in the Strings and Update the Indexes to get the tests to pass
     //
 
-    @Before
+    [SetUp]
     public void navigate() {
-        driver.get("http://a.testaddressbook.com/sign_in");
+        driver.Navigate().GoToUrl("http://a.testaddressbook.com/sign_in");
     }
 
-    @Test
+    [Test]
     public void locateEmailField() {
 
         // Update these fields:
@@ -24,7 +28,7 @@
         // There is more than one Tag name that matches the Email Field, so you
         // need to specify which number it is in the tagIndex value
         String tagName = "";
-        Integer tagIndex = 0;
+        int tagIndex = 0;
 
 
 
@@ -33,7 +37,7 @@
         // WITH THE RIGHT VALUES ABOVE IT WILL PASS
 
         // Obfuscated way of getting the Email Field
-        WebElement emailField = driver.findElements(By.xpath("//*")).get(30);
+        IWebElement emailField = driver.FindElements(By.XPath("//*"))[30];
 
         // Assert correct element has been found withe the updated strings
         assertEquals(emailField, driver.findElement(By.id(id)));
@@ -42,7 +46,7 @@
         assertEquals(emailField, driver.findElements(By.tagName(tagName)).get(tagIndex));
     }
 
-    @Test
+    [Test]
     public void locateSignInButton() {
 
         // Update these fields:
@@ -69,7 +73,7 @@
         assertEquals(signInButton, driver.findElements(By.tagName(tagName)).get(tagIndex));
     }
 
-    @Test
+    [Test]
     public void locateSignUpLink() {
 
         // Update these fields:

@@ -1,8 +1,10 @@
-﻿namespace workshop.Exercises
+﻿using NUnit.Framework;
+
+namespace workshop.Exercises
 {
     public class three
     {
-        @Test
+        [Test]
         public void signUpExistingAccount() {
             WebDriverWait wait = new WebDriverWait(driver, 10);
 
