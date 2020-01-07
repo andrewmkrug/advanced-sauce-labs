@@ -1,15 +1,17 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
+using OpenQA.Selenium.Support.UI;
 
 namespace workshop.Exercises
 {
-    public class three
+    public class three : Base.Base
     {
         [Test]
         public void signUpExistingAccount() {
-            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0,0,10));
 
             // navigate to desired page
-            driver.get("http://a.testaddressbook.com/sign_up");
+            driver.Url = "http://a.testaddressbook.com/sign_up";
 
             // Specify Data
 
@@ -26,7 +28,7 @@ namespace workshop.Exercises
 
 
             // Note that because this user already exists, Sign Up will not be successful
-            wait.until(ExpectedConditions.urlMatches("http://a.testaddressbook.com/users"));
+            wait.Until((ExpectedConditions.UrlMatches("http://a.testaddressbook.com/users")));
         }
     }
 }

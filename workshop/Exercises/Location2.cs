@@ -40,10 +40,10 @@ namespace workshop.Exercises
         IWebElement emailField = driver.FindElements(By.XPath("//*"))[30];
 
         // Assert correct element has been found withe the updated strings
-        assertEquals(emailField, driver.findElement(By.id(id)));
-        assertEquals(emailField, driver.findElement(By.name(name)));
-        assertEquals(emailField, driver.findElement(By.className(className)));
-        assertEquals(emailField, driver.findElements(By.tagName(tagName)).get(tagIndex));
+        Assert.AreSame(emailField, driver.FindElement((By.Id(id))));
+        Assert.AreSame(emailField, driver.FindElement(By.Name(name)));
+        Assert.AreSame(emailField, driver.FindElement(By.ClassName(className)));
+        Assert.AreSame(emailField, driver.FindElements(By.TagName(tagName))[tagIndex]);
     }
 
     [Test]
@@ -57,7 +57,7 @@ namespace workshop.Exercises
         // There is more than one Tag name that matches the Sign In Button, so you
         // need to specify which number it is in the tagIndex value
         String tagName = "";
-        Integer tagIndex = 0;
+        int tagIndex = 0;
 
 
 
@@ -66,11 +66,11 @@ namespace workshop.Exercises
         // WITH THE RIGHT VALUES ABOVE IT WILL PASS
 
         // Obfuscated way of getting the Sign in Button
-        WebElement signInButton = driver.findElements(By.xpath("//*")).get(34);
+        IWebElement signInButton = driver.FindElements(By.XPath("//*"))[34];
 
-        assertEquals(signInButton, driver.findElement(By.name(name)));
-        assertEquals(signInButton, driver.findElement(By.className(className)));
-        assertEquals(signInButton, driver.findElements(By.tagName(tagName)).get(tagIndex));
+        Assert.AreSame(signInButton, driver.FindElement((By.Name(name))));
+        Assert.AreSame(signInButton, driver.FindElement(By.ClassName(className)));
+        Assert.AreSame(signInButton, driver.FindElements(By.TagName(tagName))[tagIndex]);
     }
 
     [Test]
@@ -84,7 +84,7 @@ namespace workshop.Exercises
         // There is more than one Tag name that matches the Sign Up Link, so you
         // need to specify which number it is in the tagIndex value
         String tagName = "";
-        Integer tagIndex = 0;
+        int tagIndex = 0;
 
 
 
@@ -93,11 +93,11 @@ namespace workshop.Exercises
         // WITH THE RIGHT VALUES ABOVE IT WILL PASS
 
         // Obfuscated way of getting the Sign Up Link
-        WebElement signUpLink = driver.findElements(By.xpath("//*")).get(36);
+        IWebElement signUpLink = driver.FindElements(By.XPath("//*"))[36];
 
-        assertEquals(signUpLink, driver.findElement(By.linkText(linkText)));
-        assertEquals(signUpLink, driver.findElement(By.partialLinkText(partialLinkText)));
-        assertEquals(signUpLink, driver.findElements(By.tagName(tagName)).get(tagIndex));
+        Assert.AreSame(signUpLink, driver.FindElement(By.LinkText(linkText)));
+        Assert.AreSame(signUpLink, driver.FindElement(By.PartialLinkText(partialLinkText)));
+        Assert.AreSame(signUpLink, driver.FindElements(By.TagName(tagName))[tagIndex]);
 
     }
     }
