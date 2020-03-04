@@ -2,17 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using workshop.Elements;
 
 namespace workshop.Pages
 {
-    class BasePage
+    public class BasePage
     {
         protected IWebDriver driver;
-
-        public Element GetElement(By locator)
+        
+        public BasePage(IWebDriver driver)
         {
-            return new Element(driver, locator);
+            this.driver = driver;
         }
     }
 }

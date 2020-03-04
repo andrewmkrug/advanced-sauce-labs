@@ -4,13 +4,19 @@ namespace workshop.Data
 {
     public class User
     {
-        private static String username;
-        private static String password;
+        private  String username { get; set; }
+        private  String password { get; set; }
 
-        public static User valid() {
+        public User()
+        {
             username = "standard_user";
             password = "secret_sauce";
-            return new User();
+        }
+
+        public User(String username, String password)
+        {
+            this.username = username;
+            this.password = password;
         }
 
         public String getUsername() {

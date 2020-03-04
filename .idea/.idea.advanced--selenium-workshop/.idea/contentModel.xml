@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.2.0/build/netcoreapp1.0" t="Include">
+    <e p="C:\Users\Andrew\.nuget\packages\microsoft.net.test.sdk\16.2.0\build\netcoreapp1.0" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.0/build/netcoreapp2.0/nunit.engine.api.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.0/build/netcoreapp2.0/nunit.engine.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.0/build/netcoreapp2.0/NUnit3.TestAdapter.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.0/build/netcoreapp2.0/NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_advanced--selenium-workshop.686189056.00" t="ExcludeRecursive" />
-    <e p="$PROJECT_DIR$" t="IncludeFlat">
+    <e p="C:\Users\Andrew\.nuget\packages\nunit3testadapter\3.15.0\build\netcoreapp2.0\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\Andrew\.nuget\packages\nunit3testadapter\3.15.0\build\netcoreapp2.0\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\Andrew\.nuget\packages\nunit3testadapter\3.15.0\build\netcoreapp2.0\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\Andrew\.nuget\packages\nunit3testadapter\3.15.0\build\netcoreapp2.0\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\Andrew\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Andrew\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_advanced--selenium-workshop.1425088482.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Andrew\RiderProjects\advanced--selenium-workshop" t="IncludeFlat">
       <e p="advanced--selenium-workshop.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="workshop" t="IncludeRecursive">
@@ -19,36 +19,11 @@
           <e p="SauceBase.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
-        <e p="Completed" t="Include">
-          <e p="CheckoutInformationTest.cs" t="Include" />
-          <e p="ImperativeDeclarative.cs" t="Include" />
-          <e p="LocationAdvanced.cs" t="Include" />
-          <e p="Product.cs" t="Include" />
-        </e>
-        <e p="config" t="Include">
-          <e p="platforms.yaml" t="Include" />
-        </e>
         <e p="data" t="Include">
-          <e p="Person.cs" t="Include" />
-          <e p="Product.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
-        <e p="Elements" t="Include">
-          <e p="Element.cs" t="Include" />
-        </e>
-        <e p="Examples" t="Include">
-          <e p="ActionsClass.cs" t="Include" />
-          <e p="AdvancedLocation.cs" t="Include" />
-          <e p="DeclarativeTest.cs" t="Include" />
-          <e p="SeleniumScripts.cs" t="Include" />
-          <e p="SignInTest.cs" t="Include" />
-          <e p="Waits.cs" t="Include" />
-        </e>
         <e p="Exercises" t="Include">
-          <e p="Location.cs" t="Include" />
-          <e p="Location2.cs" t="Include" />
-          <e p="three.cs" t="Include" />
+          <e p="LoginFeatureTest.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -59,12 +34,12 @@
         </e>
         <e p="Pages" t="Include">
           <e p="BasePage.cs" t="Include" />
-          <e p="CartPage.cs" t="Include" />
-          <e p="CheckoutOvervviewPage.cs" t="Include" />
-          <e p="CheckoutPage.cs" t="Include" />
-          <e p="HomePage.cs" t="Include" />
+          <e p="CheckoutCompletePage.cs" t="Include" />
+          <e p="CheckoutStepTwoPage.cs" t="Include" />
+          <e p="ConfirmationPage.cs" t="Include" />
           <e p="InventoryPage.cs" t="Include" />
-          <e p="ProductPage.cs" t="Include" />
+          <e p="LoginPage.cs" t="Include" />
+          <e p="ShoppingCartPage.cs" t="Include" />
         </e>
         <e p="workshop.csproj" t="IncludeRecursive" />
       </e>

@@ -9,9 +9,10 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 
+//[assembly:LevelOfParallelism(5)]
 namespace workshop.Base
 {
-    [Parallelizable]
+    [Parallelizable(ParallelScope.All)]
     [TestFixture(Platforms.Windows_10, Browsers.Edge, "latest")]
     [TestFixture(Platforms.Mac_Mojave, Browsers.Safari, "latest")]
     [TestFixture(Platforms.Windows_7, Browsers.Firefox, "latest")]
@@ -22,6 +23,9 @@ namespace workshop.Base
         private string _sauceUsername;
         private string _sauceAccessKey;
         private DriverOptions _options;
+        private Platforms _platform;
+        private Browsers _browser;
+        private string _version;
 
         public SauceBase(Platforms platform, Browsers browser, String version = "0")
         {
@@ -30,17 +34,11 @@ namespace workshop.Base
  
             //TODO please supply your own Sauce Labs access Key in an environment variable
             _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            
-            
-            var sauceOptions = new Dictionary<string, object>
-            {
-                ["username"] = _sauceUsername,
-                ["accessKey"] = _sauceAccessKey,
-                ["name"] = TestContext.CurrentContext.Test.Name,
-                ["selenium_version"] = "3.141.59"
-            };
 
-            _options = Options(platform, browser, version, sauceOptions);
+            this._platform = platform;
+            this._browser = browser;
+            this._version = version;
+
 
         }
 
@@ -133,7 +131,17 @@ namespace workshop.Base
 
         public void SetUp()
         {
-            
+            var sauceOptions = new Dictionary<string, object>
+            {
+                ["username"] = _sauceUsername,
+                ["accessKey"] = _sauceAccessKey,
+                ["name"] = TestContext.CurrentContext.Test.Name,
+                ["selenium_version"] = "3.141.59",
+                ["build"] = DateTime.Now.ToString("yyyMMdd-hhmm"),
+                ["extendedDebugging"] = true
+            };
+
+            _options = Options(_platform, _browser, _version, sauceOptions);
             driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), _options);
             
         }
@@ -146,10 +154,19 @@ namespace workshop.Base
         public void TearDown()
         {
             //Checks the status of the test and passes the result to the Sauce Labs job
-            var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            ((IJavaScriptExecutor)driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+
+            int passing = 2;
             
-            driver?.Quit(); 
+            if (new Random().Next(4) < passing)
+            {
+                var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+                ((IJavaScriptExecutor) driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+            }
+
+            if (new Random().Next(4) < passing)
+            {
+                driver?.Quit();
+            }
         }
     }
 }
