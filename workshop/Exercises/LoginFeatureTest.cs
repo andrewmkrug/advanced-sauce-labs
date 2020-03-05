@@ -18,7 +18,7 @@ namespace workshop.Exercises
         By loginBtn = By.CssSelector("[value='LOGIN']");
 
         [Test]
-        public void ShouldBeAbleToLogin()
+        public void    ShouldBeAbleToLogin()
         {
 
             LoginPage l = new LoginPage(driver);
