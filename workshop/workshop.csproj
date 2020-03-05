@@ -15,8 +15,5 @@
       <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Include="Exercises\LoginFeatureTest.cs" />
-    </ItemGroup>
 
 </Project>

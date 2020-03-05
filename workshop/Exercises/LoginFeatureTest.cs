@@ -4,17 +4,17 @@ using OpenQA.Selenium;
 
 namespace workshop.Exercises
 {
-    public class LoginFeatureTest : workshop.Base.Base
+    [TestFixture]
+    public class LoginFeatureTest : Base.Base
     {
-        protected IWebDriver driver;
 
         String username = "standard_user";
         String password = "secret_sauce";
         
         //TODO Find and Complete these Locators
-        By userField;
-        By passField;
-        By loginBtn;
+        By userField = By.CssSelector("[data-test='username']");
+        By passField = By.CssSelector("[data-test='password']");
+        By loginBtn = By.CssSelector("[value='LOGIN']");
 
         [Test]
         public void ShouldBeAbleToLogin()
@@ -35,7 +35,7 @@ namespace workshop.Exercises
             driver.FindElement(loginBtn).Click();
 
             // ignore assertion
-            Assert.Equals("https://www.saucedemo.com/inventory.html", driver.Url);
+            Assert.AreEqual("https://www.saucedemo.com/inventory.html", driver.Url);
         }
     }
 }
