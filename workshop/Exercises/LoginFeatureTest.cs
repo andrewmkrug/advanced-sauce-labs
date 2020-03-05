@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using workshop.Pages;
 
 namespace workshop.Exercises
 {
@@ -20,19 +21,15 @@ namespace workshop.Exercises
         public void ShouldBeAbleToLogin()
         {
 
-            //navigate to the url of the Sauce Labs Sample app
-            driver.Navigate().GoToUrl("https://www.saucedemo.com");
-
-            // wait 5 seconds
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            // send username keystrokes
-            driver.FindElement(userField).SendKeys(username);
+            LoginPage l = new LoginPage(driver);
+            l.visit();
+            
+            driver.FindElement(By.CssSelector("[data-test='username']")).SendKeys(username);
 
             // send password keystrokes
-            driver.FindElement(passField).SendKeys(password);
-
-            // click login button to submit keystrokes
-            driver.FindElement(loginBtn).Click();
+            driver.FindElement(By.CssSelector("[data-test='password']")).SendKeys(password);
+            
+            driver.FindElement(By.CssSelector("[value='LOGIN']")).Click();
 
             // ignore assertion
             Assert.AreEqual("https://www.saucedemo.com/inventory.html", driver.Url);

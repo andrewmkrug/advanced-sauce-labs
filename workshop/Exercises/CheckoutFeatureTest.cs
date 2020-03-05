@@ -21,13 +21,13 @@ namespace workshop.Exercises
             InventoryPage inventoryPage = loginPage.login(username, password);
 
             ConfirmationPage confirmationPage = new ConfirmationPage(driver);
-                    confirmationPage.Visit();
-                    confirmationPage.setPageState();
-                    Assert.True(confirmationPage.hasItems());
-            
-                    CheckoutCompletePage completePage = confirmationPage.finish();
-                    // assert that the test is finished by checking the last page's URL
-                    Assert.True(completePage.IsLoaded());
+            confirmationPage.Visit();
+            confirmationPage.setPageState();
+            Assert.True(confirmationPage.hasItems());
+    
+            CheckoutCompletePage completePage = confirmationPage.finish();
+            // assert that the test is finished by checking the last page's URL
+            Assert.True(completePage.IsLoaded());
         }
     }
 }
